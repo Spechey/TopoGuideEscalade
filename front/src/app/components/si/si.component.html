@@ -1,0 +1,29 @@
+<div  *ngIf="view === 'default' && loaded">
+    <app-topo-element [view]="'default'" [datas]="datas"></app-topo-element>
+    <div class="card-columns">
+      <app-sc *ngFor="let id of childrens" [id]="id" [view]="'children'">
+      </app-sc>
+    </div>
+    <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+    <app-topo-element [view]="'pi'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'infos' && loaded">
+  <app-topo-element [view]="'infos'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'details' && loaded">
+  <app-topo-element [view]="'details'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'routes' && loaded">
+  <div class="card-columns">
+    <app-sc *ngFor="let id of childrens" [id]="id"  [view]="'children'">
+    </app-sc>
+  </div>
+</div>
+<div  *ngIf="view === 'pi' && loaded">
+  <app-topo-element [view]="'pi'" [datas]="datas"></app-topo-element>
+</div>
+<div *ngIf="view === 'children'">
+  {{ titre }}
+</div>

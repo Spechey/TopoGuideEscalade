@@ -1,0 +1,67 @@
+<div *ngIf="view === 'default' && loaded">
+  <app-topo-element></app-topo-element>
+</div>
+<div  *ngIf="view === 'infos' && loaded">
+  <app-topo-element [view]="'infos'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'details' && loaded">
+  <app-topo-element [view]="'details'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'complements' && loaded">
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'topoImage' && loaded">
+  <app-topo-image 
+  [datas]="datas" 
+  (map)="setImageMap($event)"
+  [left]="canLeft"
+  [right]="canRight"
+  (onLeft)="goLeft()"
+  (onRight)="goRight()"></app-topo-image>
+</div>
+<div  *ngIf="view === 'routes' && loaded">
+  <table class="table table-dark fullsize">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Cotation</th>
+      <th scope="col">Longueur</th>
+      <th scope="col">Départ</th>
+      <th scope="col">Orientation</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+    </tr>
+    </thead>
+    <tr app-w *ngFor="let id of childrens" [id]="id"  [view]="'children'">
+    </tr>
+  </table>
+</div>
+<div  *ngIf="view === 'pi' && loaded">
+  <app-topo-element [view]="'pi'" [datas]="datas"></app-topo-element>
+</div>
+
+  <ng-container *ngIf="view === 'children'">
+  <div class="row" *ngFor="let w of childrens; let subIndex = index; let isOdd = odd;">
+    <div class="col">
+      <span [ngClass]="['index', 'bg-color-'+ w.cot.substring(0,1) ]" (click)="router.navigate(['sp', id, '-'])">{{ (index+1) }}<ng-container *ngIf="(childrens.length > 1)">.{{ (subIndex+1) }}</ng-container></span>
+      <ng-container *ngIf="w.t.recomandation">
+      <span *ngFor="let recomandation of w.t.recomandation">
+        {{ recomandation }}
+      </span>
+      </ng-container>
+    </div>
+    <div class="col col-2">{{ getWName(w) }}</div>
+    <div class="col col-1">{{ w.cot }}</div>
+    <div class="col col-1">{{ getWH(w) }}</div>
+    <div class="col col-1">{{ w.d }}</div>
+    <div class="col col-1">{{ getWOrientation(w) }}</div>
+    <div class="col col-3">{{ getWDesc(w) }}</div>
+    <div class="col col-2">
+      <ng-container *ngIf="!!w.t.profil">
+        <img  *ngFor="let profil of w.t.profil"  [src]="'/assets/profil_'+ profil +'.png'">
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,25 @@
+:root{
+  --base-color: #ad2f2f;
+  --base-color-light: #d96565;
+  --background-color: #faecec;
+  --color-text: #4b4b4b;
+  --link-color: #3d2b44;
+  --link-color-hover: #573d60;
+  --color-btn-success: #4e934e;
+
+
+  --small-screen: 300px;
+  --medium-screen: 900px;
+  --large-screen: 1400px
+}
+
+@mixin button-box() {
+  box-shadow: 0 1em 1em rgba(darkgrey, .45);
+  border-radius: 1em 0.5em 0.5em 0.5em;
+  border: 0.1em solid var(--base-color);
+  margin: 0.5em;
+  padding: 0 0.5em;
+  &:hover {
+    box-shadow: 0em 0em 1em var(--base-color-light);
+  }
+}

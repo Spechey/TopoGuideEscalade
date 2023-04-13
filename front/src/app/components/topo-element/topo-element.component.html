@@ -1,0 +1,23 @@
+<div *ngIf="view === 'default'">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">{{ titre }}</h2>
+    </div>
+    <div class="card-body">
+      <div class="card-text" [innerHTML]="desc | MarkdownToHtml"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="view === 'infos'">
+  <h2>{{ titre }}</h2>
+  <div [innerHTML]="desccourte | MarkdownToHtml"></div>
+  <app-complement  *ngFor="let c of complements"  [type]="c.name" [value]="c.value"></app-complement>
+</div>
+<div *ngIf="view === 'details'">
+  <div [innerHTML]="desc | MarkdownToHtml"></div>
+  <app-complement  *ngFor="let c of complements"  [type]="c.name" [value]="c.value"></app-complement>
+</div>
+<div *ngIf="view === 'pi'">
+    <app-pi  *ngFor="let id of PIs"  [id]="id" [view]="'children'"></app-pi>
+</div>

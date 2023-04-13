@@ -1,0 +1,7 @@
+<div *ngIf="view === 'default' && !!datas">
+  <app-topo-element [view]="'default'" [datas]="datas" ></app-topo-element>
+</div>
+<div *ngIf="view === 'children' && !!datas">
+  <h2>{{titre}}</h2>
+  <p>{{ desc }}</p>
+</div>

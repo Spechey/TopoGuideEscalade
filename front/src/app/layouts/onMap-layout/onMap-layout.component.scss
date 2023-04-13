@@ -1,0 +1,67 @@
+:host {
+  .leaflet-sidebar.sc, .leaflet-sidebar.w {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .leaflet-sidebar.collapsed {
+    width: 40px;
+    max-width: 40px;
+  }
+
+  .leaflet-sidebar-pane {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .leaflet-sidebar-header {
+    padding-left: 50px;
+  }
+
+  @media (min-width: 992px) {
+    .leaflet-sidebar {
+      width: 50%;
+      max-width: 50%;
+    }
+    .leaflet-sidebar.collapsed {
+      width: 40px;
+      max-width: 40px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .leaflet-sidebar {
+      width: 75%;
+      max-width: 75%;
+    }
+    .leaflet-sidebar.collapsed {
+      width: 40px;
+      max-width: 40px;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .fullsize {
+    max-width: 100%;
+    width: 100%;
+  }
+  .row.header:first-child {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  app-sp:nth-child(2n+2) .row {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  app-sp .row:nth-child(2n+2) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  app-sp .row {
+    padding: 0.5em;
+  }
+  .index {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
+    text-align: center;
+    width: 2.5em;
+  }
+}

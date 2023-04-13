@@ -1,0 +1,8 @@
+@import '../../../shared/scss/variable';
+li {
+  display: inline-block;
+}
+a {
+  display: block;
+  @include button-box
+}

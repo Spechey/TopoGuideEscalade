@@ -1,0 +1,40 @@
+:host {
+  .bloc-map {
+
+  }
+
+}
+
+:host ::ng-deep {
+  .map-wrapper, .topo-image-wrapper {
+    height: 30em !important;
+  }
+  .fullsize {
+    max-width: 100%;
+    width: 100%;
+  }
+  .row.header:first-child {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  app-sp:nth-child(2n+2) .row {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  app-sp .row:nth-child(2n+2) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  app-sp .row {
+    padding: 0.5em;
+  }
+  .index {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
+    text-align: center;
+    width: 2.5em;
+  }
+  .card-img-top {
+    max-height: 20em;
+    width: auto;
+    margin: 0 auto;
+  }
+}

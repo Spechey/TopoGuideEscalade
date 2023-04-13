@@ -1,0 +1,27 @@
+<div *ngIf="view === 'default'">
+  <app-topo-element></app-topo-element>
+</div>
+<div  *ngIf="view === 'infos' && loaded">
+  <app-topo-element [view]="'infos'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'details' && loaded">
+  <app-topo-element [view]="'details'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'routes' && loaded">
+</div>
+<div  *ngIf="view === 'pi' && loaded">
+  <app-topo-element [view]="'pi'" [datas]="datas"></app-topo-element>
+</div>
+
+<ng-container *ngIf="view === 'children'">
+    <td scope="row">#</td>
+    <td>{{ datas.name }}</td>
+    <td>{{ datas.cot }}</td>
+    <td>{{ datas.cot }}</td>
+    <td>{{ datas.cot }}</td>
+    <td>{{ datas.cot }}</td>
+    <td>{{ datas.desc }}</td>
+    <td>{{ datas }}</td>
+</ng-container>

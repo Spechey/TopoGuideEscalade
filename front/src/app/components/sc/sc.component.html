@@ -1,0 +1,50 @@
+<div *ngIf="view === 'default'" xmlns="http://www.w3.org/1999/html">
+  <app-topo-element></app-topo-element>
+</div>
+<div  *ngIf="view === 'infos' && loaded">
+  <app-topo-element [view]="'infos'" [datas]="datas"></app-topo-element>
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'topoImage' && loaded">
+  <app-topo-image 
+  [datas]="datas" 
+  (map)="setImageMap($event)"
+  [left]="canLeft"
+  [right]="canRight"
+  (onLeft)="goLeft()"
+  (onRight)="goRight()"></app-topo-image>
+</div>
+<div  *ngIf="view === 'details' && loaded">
+  <app-topo-element [view]="'details'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'complements' && loaded">
+  <app-topo-element [view]="'complements'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'routes' && loaded">
+  <div class="container table-dark fullsize">
+    <div class="row header">
+      <div class="col col-1">#</div>
+      <div class="col col-2">Nom</div>
+      <div class="col col-1">Cotation</div>
+      <div class="col col-1">Longueur</div>
+      <div class="col col-1">Départ</div>
+      <div class="col col-1">Orientation</div>
+      <div class="col col-3">Description</div>
+      <div class="col col-2">Type</div>
+    </div>
+    <app-sp class="app-sp"  *ngFor="let id of childrens;let index = index;" [id]="id" [index]="index"  [view]="'children'">
+    </app-sp>
+  </div>
+</div>
+<div  *ngIf="view === 'pi' && loaded">
+  <app-topo-element [view]="'pi'" [datas]="datas"></app-topo-element>
+</div>
+<div  *ngIf="view === 'children'"
+      class="card m-3 card-click">
+    <img class="card-img-top" [src]="img('W')" (click)="router.navigate(['sc', id, '-'])"/>
+    <div class="card-header">
+      <a (click)="router.navigate(['sc', id, '-'])" href="#">
+        <h3 class="card-title">{{ titre }}</h3>
+      </a>
+    </div>
+</div>

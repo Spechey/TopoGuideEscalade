@@ -1,0 +1,16 @@
+<script src="../../../shared/pipe/safe-url.ts"></script>
+<div *ngIf="view === 'clean'">
+None
+</div>
+<div *ngIf="view === 'listsi'">
+  <h2>Lite des sites disponibles principaux</h2>
+    <ng-container *ngFor="let si of Listsi">
+      <li *ngIf="si.nb_sc > 0 && si.type !== 'si-SAE'">
+          <a (click)="router.navigate(['si', si.id, si.nom])" >
+            <img [src]="rtgStyleService.getSiSvgIcon(si) | safeUrl" />
+            {{ si.nom }}
+          </a>
+      </li>
+    </ng-container>
+</div>
+

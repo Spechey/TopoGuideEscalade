@@ -1,0 +1,9 @@
+<div class="map-wrapper" >
+  <div id="map" leaflet>
+  </div>
+  <leaflet-sidebar-control  *ngIf="haveSidebars == true"
+    [map]="_map"
+    [options]="sidebarOptions"
+  ></leaflet-sidebar-control>
+</div>
+
